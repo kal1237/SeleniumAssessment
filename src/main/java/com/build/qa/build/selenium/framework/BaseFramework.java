@@ -73,7 +73,7 @@ public abstract class BaseFramework {
 	@After
 	public void tearDownAfter() {
 		LOG.info("Quitting driver.");
-		driver.quit();
+		driver.close();
 		driver = null;
 	}
 }
