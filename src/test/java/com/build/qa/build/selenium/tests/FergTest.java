@@ -7,7 +7,7 @@ import com.build.qa.build.selenium.framework.BaseFramework;
 import com.build.qa.build.selenium.pageobjects.homepage.BathroomSinkFaucets;
 import com.build.qa.build.selenium.pageobjects.homepage.HomePage;
 import com.build.qa.build.selenium.pageobjects.homepage.ProductNameCheck;
-import com.build.qa.build.selenium.pageobjects.homepage.addMultipleCartItems;
+import com.build.qa.build.selenium.pageobjects.homepage.AddMultipleCartItems;
 
 public class FergTest extends BaseFramework {
 
@@ -87,7 +87,7 @@ public class FergTest extends BaseFramework {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
-		addMultipleCartItems amci=new addMultipleCartItems(driver,wait);
+		AddMultipleCartItems amci=new AddMultipleCartItems(driver,wait);
 		amci.addTwoDifferentFinishOfProduct();
 		boolean flag1=amci.shoppingCartViewProductChrome();
 		System.out.println(flag1);

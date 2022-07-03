@@ -12,10 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.build.qa.build.selenium.pageobjects.BasePage;
 
-public class addMultipleCartItems extends BasePage {
+public class AddMultipleCartItems extends BasePage {
 	
 	
-	public addMultipleCartItems(WebDriver driver, Wait<WebDriver> wait) {
+	public AddMultipleCartItems(WebDriver driver, Wait<WebDriver> wait) {
 		super(driver, wait);
 		
 	}
