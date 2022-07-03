@@ -7,12 +7,14 @@ import com.build.qa.build.selenium.framework.BaseFramework;
 import com.build.qa.build.selenium.pageobjects.homepage.BathroomSinkFaucets;
 import com.build.qa.build.selenium.pageobjects.homepage.HomePage;
 import com.build.qa.build.selenium.pageobjects.homepage.ProductNameCheck;
+import com.build.qa.build.selenium.pageobjects.homepage.addMultipleCartItems;
 
 public class FergTest extends BaseFramework {
 
 	/**
 	 * Extremely basic test that outlines some basic
 	 * functionality and page objects as well as assertJ
+	 * @throws InterruptedException 
 	 */
 	@Test
 	public void navigateToHomePage() {
@@ -80,9 +82,24 @@ public class FergTest extends BaseFramework {
 	 * @assert that the product and cart total update as expected when the quantity is changed
 	 * @difficulty Medium-Hard
 	 */
-	/*@Test
-	public void addMultipleCartItemsAndChangeQuantity() {
+	@Test
+	public void addMultipleCartItemsAndChangeQuantity() throws InterruptedException {
 		// TODO: Implement this test
+		driver.get(getConfiguration("HOMEPAGE"));
+		driver.manage().window().maximize();
+		addMultipleCartItems amci=new addMultipleCartItems(driver,wait);
+		amci.addTwoDifferentFinishOfProduct();
+		boolean flag1=amci.shoppingCartViewProductChrome();
+		System.out.println(flag1);
+		System.out.println("Shopping Cart price for Chrome is as expected");
+		boolean flag2=amci.shoppingCartViewProductMatte();
+		System.out.println(flag2);
+		System.out.println("Shopping Cart for price Matte is as expected");
+		
+		Assert.assertTrue(flag1&&flag2);
+		System.out.println("The products are added successfully and the price updated as per quantity");
+		
+		
 	}
 
 	/**
