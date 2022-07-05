@@ -1,30 +1,37 @@
 package com.build.qa.build.selenium.tests;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.build.qa.build.selenium.framework.BaseFramework;
 import com.build.qa.build.selenium.pageobjects.homepage.BathroomSinkFaucets;
 import com.build.qa.build.selenium.pageobjects.homepage.HomePage;
+import com.build.qa.build.selenium.pageobjects.homepage.NarrowByCategoryDropPage;
 import com.build.qa.build.selenium.pageobjects.homepage.ProductNameCheck;
 import com.build.qa.build.selenium.pageobjects.homepage.AddMultipleCartItems;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 public class FergTest extends BaseFramework {
 
+	
+	
 	/**
 	 * Extremely basic test that outlines some basic
 	 * functionality and page objects as well as assertJ
 	 * @throws InterruptedException 
 	 */
 	@Test
-	public void navigateToHomePage() {
+	public void test1navigateToHomePage() {
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
 
 		HomePage homePage = new HomePage(driver, wait);
 
 		Assert.assertTrue(homePage.onHomePage());
-		System.out.println("The website should load up with the Build.com desktop theme.");
+		System.out.println("Test1 Success:The website should load up with the Build.com desktop theme.");
 
 		//softly.assertThat(homePage.onHomePage()).as("The website should load up with the Build.com desktop theme.").isTrue();
 	}
@@ -36,7 +43,7 @@ public class FergTest extends BaseFramework {
 	 * @difficulty Easy
 	 */
 	@Test
-	public void searchForProductLandsOnCorrectProduct() throws InterruptedException {
+	public void test2searchForProductLandsOnCorrectProduct() throws InterruptedException {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
@@ -46,7 +53,7 @@ public class FergTest extends BaseFramework {
 		boolean flag3=product.fetchProductID();
 
 		Assert.assertTrue(flag1&&flag2&&flag3);
-		System.out.println("The Product page is as expected and details are as expected");
+		System.out.println("Test2 Success:The Product page is as expected and details are as expected");
 
 	}
 
@@ -60,7 +67,7 @@ public class FergTest extends BaseFramework {
 	 */
 	
 	@Test
-	public void addProductToCartFromCategoryDrop() throws InterruptedException {
+	public void test3addProductToCartFromCategoryDrop() throws InterruptedException {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE1"));
 		driver.manage().window().maximize();
@@ -71,7 +78,7 @@ public class FergTest extends BaseFramework {
 		boolean flag2=bsf.shoppingCartValidation();
 	Thread.sleep(2000);
 		Assert.assertTrue(flag1&&flag2);
-		System.out.println("The second Product is added successfully to the cart and the product details are as expected");
+		System.out.println("Test3 Success:The second Product is added successfully to the cart and the product details are as expected");
 
 
 	}
@@ -83,7 +90,7 @@ public class FergTest extends BaseFramework {
 	 * @difficulty Medium-Hard
 	 */
 	@Test
-	public void addMultipleCartItemsAndChangeQuantity() throws InterruptedException {
+	public void test4addMultipleCartItemsAndChangeQuantity() throws InterruptedException {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
@@ -97,7 +104,7 @@ public class FergTest extends BaseFramework {
 		System.out.println("Shopping Cart for price Matte is as expected");
 		
 		Assert.assertTrue(flag1&&flag2);
-		System.out.println("The products are added successfully and the price updated as per quantity");
+		System.out.println("TEst4 Success:The products are added successfully and the price updated as per quantity");
 		
 		
 	}
@@ -109,9 +116,26 @@ public class FergTest extends BaseFramework {
 	 * is correct, such that each facet selection is narrowing the product count.
 	 * @difficulty Hard
 	 */
-	/*@Test
-	public void facetNarrowBysResultInCorrectProductCounts() {
+	
+	@Test
+	public void test5facetNarrowBysResultInCorrectProductCounts() throws InterruptedException {
 		// TODO: Implement this test
+		driver.get(getConfiguration("HOMEPAGE"));
+		driver.manage().window().maximize();
+		NarrowByCategoryDropPage nbcdp=new NarrowByCategoryDropPage(driver,wait);
+		boolean flag1=nbcdp.searchByCategory();
+		Thread.sleep(2000);
+		boolean flag2=nbcdp.searchBycategoryFirstFilter();
+		Thread.sleep(2000);
+		boolean flag3=nbcdp.searchBycategorySecondFilter();
+		Thread.sleep(2000);
+		boolean flag4=nbcdp.searchBycategoryThirdFilter();
+		
+		
+		Assert.assertTrue(flag1&&flag2&flag3&&flag4);
+		System.out.println("Test5 Success:The correct filters are being narrowed and the result count is correct");
+		
+		
+		
 	}
-	 */
 }

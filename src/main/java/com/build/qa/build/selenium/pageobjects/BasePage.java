@@ -12,5 +12,6 @@ public abstract class BasePage extends BaseFramework {
 		this.driver = driver;
 		this.wait = wait;
 		PageFactory.initElements(driver, this);
+		
 	}
 }

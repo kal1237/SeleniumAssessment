@@ -64,7 +64,7 @@ public class BathroomSinkFaucets extends BasePage{
 		if(addToCart.isEnabled())
 		{
 			addToCart.click();
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 
 			if(addToCartSuccessMessage.getText().equalsIgnoreCase("Added to your cart. View Cart"))
 			{
