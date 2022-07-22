@@ -58,11 +58,13 @@ public abstract class BaseFramework {
 			driver = new ChromeDriver(capabilities);
 		} else if (DRIVER_FIREFOX.equalsIgnoreCase(configuration.getProperty("BROWSER"))) {
 			capabilities = DesiredCapabilities.firefox();
+			
 			driver = new FirefoxDriver(capabilities);
 		}
 		else if (DRIVER_EDGE.equalsIgnoreCase(configuration.getProperty("BROWSER"))) {
 			capabilities = DesiredCapabilities.edge();
-			WebDriverManager.edgedriver().setup();
+			
+			
 			driver = new EdgeDriver(capabilities);
 		}
 		

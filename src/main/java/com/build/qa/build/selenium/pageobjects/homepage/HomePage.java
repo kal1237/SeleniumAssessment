@@ -20,10 +20,14 @@ public class HomePage extends BasePage {
 		homePageWrapper = By.cssSelector("#wrapper.homepage");
 	}
 	
+	
+	
 	public boolean onHomePage() {
 		
-		System.out.println("Wrapper is"+homePageWrapper);
+		//System.out.println("Wrapper is"+homePageWrapper);
 		return wait.until(ExpectedConditions.presenceOfElementLocated(homePageWrapper)) != null;
+		
+		
 	}
 	
 	

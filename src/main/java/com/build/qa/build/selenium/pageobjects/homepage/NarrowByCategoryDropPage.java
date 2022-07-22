@@ -32,9 +32,9 @@ public class NarrowByCategoryDropPage extends BasePage {
 	@FindBy(xpath="(//div[@class='col-lg-4 filter-selects'])[1]") WebElement colorFinishCategory;
 	@FindBy(xpath="(//div[@class='col-lg-4 filter-selects'])[2]") WebElement numberOfHandlesCategory;
 	@FindBy(xpath="(//div[@class='col-lg-4 filter-selects'])[3]") WebElement collectionCategory;
-	@FindBy(xpath="//label[contains(text(),'  Blacks (219)')]") WebElement blacksFinish;
-	@FindBy(xpath="//label[contains(text(),'  Two Handle (27)')]") WebElement twoHandles;
-	@FindBy(xpath="//label[contains(text(),'  Chesterfield (12)')]") WebElement chesterFieldCollection;
+	@FindBy(xpath="//label[contains(text(),'  Blacks')]") WebElement blacksFinish;
+	@FindBy(xpath="//label[contains(text(),'  Two Handle')]") WebElement twoHandles;
+	@FindBy(xpath="//label[contains(text(),'  Chesterfield')]") WebElement chesterFieldCollection;
 
 	@FindBy(xpath="(//div[@class='rc-fg-option']//p[@class='js-title'])[1]") WebElement filterCategory1;
 	@FindBy(xpath="(//div[@class='rc-fg-option']//p[@class='js-title'])[2]") WebElement filterCategory2;
@@ -79,7 +79,8 @@ public class NarrowByCategoryDropPage extends BasePage {
 		String CategoryExpected="Category:";
 		String CategoryResult=filterCategoryDisplayed1.getText();
 		String CategoryResultDisplayed="Kitchen Faucets";
-		int totalNumberExpected=1480;
+		//removed this hardcoded number since the count has changed in the website
+		//int totalNumberExpected=1480;
 		int totalNumberDisplayed=nbc.totalNumberOfrecords();
 		boolean flag=false;
 
@@ -88,12 +89,12 @@ public class NarrowByCategoryDropPage extends BasePage {
 		System.out.println("total records now:"+nbc.totalNumberOfrecords());
 
 		if((categoryDisplayed.equalsIgnoreCase(CategoryExpected))
-				&&(CategoryResult.equalsIgnoreCase(CategoryResultDisplayed))
-				&&(totalNumberExpected==totalNumberDisplayed))
+				&&(CategoryResult.equalsIgnoreCase(CategoryResultDisplayed)))
+				/*&&(totalNumberExpected==totalNumberDisplayed))*/
 
 		{
 			flag=true;
-			System.out.println("The correct filters are being narrowed, and the result count is correct");
+			System.out.println("The correct filters for category are being narrowed");
 		}
 
 		return flag;

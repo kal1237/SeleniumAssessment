@@ -29,9 +29,13 @@ public class FergTest extends BaseFramework {
 		driver.manage().window().maximize();
 
 		HomePage homePage = new HomePage(driver, wait);
+		//System.out.println(homePage.onHomePage());
 
 		Assert.assertTrue(homePage.onHomePage());
 		System.out.println("Test1 Success:The website should load up with the Build.com desktop theme.");
+		
+	
+		
 
 		//softly.assertThat(homePage.onHomePage()).as("The website should load up with the Build.com desktop theme.").isTrue();
 	}
@@ -134,7 +138,6 @@ public class FergTest extends BaseFramework {
 		
 		Assert.assertTrue(flag1&&flag2&flag3&&flag4);
 		System.out.println("Test5 Success:The correct filters are being narrowed and the result count is correct");
-		
 		
 		
 	}
