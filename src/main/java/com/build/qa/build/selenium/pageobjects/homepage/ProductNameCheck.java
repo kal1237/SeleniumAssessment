@@ -27,7 +27,7 @@ public class ProductNameCheck extends BasePage{
 	@FindBy(xpath="(//div[@class='col-lg-12 col-md-12']//p[@class='product__prop']//span)[1]") WebElement productID;
 
 
-	//Searching Product name "Moen m6702bn" in search bar and om enter navigating to product page
+	//Searching Product name "Moen m6702bn" in search bar and  navigating to product page
 	public boolean searchText() throws InterruptedException
 	{
 		boolean flag=false;
@@ -58,10 +58,11 @@ public class ProductNameCheck extends BasePage{
 		boolean flag=false;
 		String ExpectedBrandName="Moen";
 		String ActualBrandName=productBrand.getText();
+		System.out.println("product brand is:"+ActualBrandName);
 		if(ExpectedBrandName.equalsIgnoreCase(ActualBrandName))
 		{
 			flag=true;
-			System.out.println("The product brand matches");
+			System.out.println("The product brand matches and as expected");
 		}
 
 		return flag;
@@ -75,12 +76,12 @@ public class ProductNameCheck extends BasePage{
 		String ExpectedBrandID="M6702BN";
 		String ActualBrandID=productID.getText();
 		String ActualSubString=ActualBrandID.substring(6);
-		System.out.println("product id:"+ActualSubString);
+		System.out.println("product id is:"+ActualSubString);
 
 		if(ExpectedBrandID.equalsIgnoreCase(ActualSubString))
 		{
 			flag=true;
-			System.out.println("The product ID matches");
+			System.out.println("The product ID matches and as expected");
 		}
 
 		return flag;

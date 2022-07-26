@@ -25,11 +25,13 @@ public class HomePage extends BasePage {
 	public boolean onHomePage() {
 		
 		//System.out.println("Wrapper is"+homePageWrapper);
+		
 		return wait.until(ExpectedConditions.presenceOfElementLocated(homePageWrapper)) != null;
 		
 		
-	}
 	
 	
 	
+	
+}
 }

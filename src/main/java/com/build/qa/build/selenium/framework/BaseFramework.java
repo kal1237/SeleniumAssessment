@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.assertj.core.api.JUnitSoftAssertions;
 import org.junit.After;
 import org.junit.Before;
@@ -36,6 +37,7 @@ public abstract class BaseFramework {
 
 	@Rule
 	public final JUnitSoftAssertions softly = new JUnitSoftAssertions();
+	
 
 	@BeforeClass
 	public static void beforeClass() throws IOException {

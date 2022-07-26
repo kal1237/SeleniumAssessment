@@ -83,7 +83,7 @@ public class AddMultipleCartItems extends BasePage {
 		System.out.println("In Product page Moen Matte Black");
 		//getting price of Matte Black finish product
 		priceMoenMB=priceMoenMatteBlack.getText();
-		System.out.println("Price of Matte Black"+priceMoenMB);
+		System.out.println("Price of Matte Black: "+priceMoenMB);
 		
 		    bsf.addToCart.click();
 			Thread.sleep(2000);
@@ -107,7 +107,7 @@ public class AddMultipleCartItems extends BasePage {
 			chromequantity.click();
 			
 			String quantityOfChrome=chromequantity.getAttribute("value");
-			System.out.println("Quantity of first product"+quantityOfChrome);
+			System.out.println("Quantity of first product: "+quantityOfChrome);
 			
 			//getting current price and checkin if it matches the actual value
 			
@@ -115,7 +115,7 @@ public class AddMultipleCartItems extends BasePage {
 			
 			String priceMoenChCart1=priceMoenChCart.substring(1);
 			float priceChrome=Float.parseFloat(priceMoenChCart1);
-			System.out.println("price in cart of product Chrome"+priceMoenChCart);
+			System.out.println("price in cart of product Chrome: "+priceMoenChCart);
 			
 			if(priceMoenChCart1.equals(priceMoenCh))
 			{
@@ -125,23 +125,23 @@ public class AddMultipleCartItems extends BasePage {
 			
 			
 			Thread.sleep(2000);
-			//Changing the quantity to one more and getting the price changed
+			//Changing the quantity to one more(qty-2) and getting the price changed
 			
 			WebDriverWait wait = new WebDriverWait(driver,30);
 			wait.until(ExpectedConditions.elementToBeClickable(qtyUPChromeCart));
 			
 			qtyUPChromeCart.click();
 			Thread.sleep(2000);
-			System.out.println("Adding 1 more to first one Chrome");
+			System.out.println("Adding 1 more to first product Chrome");
 			
 			String quantityOfChrome1=chromequantity.getAttribute("value");
 			float qtyChrome=Float.parseFloat(quantityOfChrome1);
-			System.out.println("Quantity of Chrome Now:"+qtyChrome);
+			System.out.println("Quantity of Chrome Now:"+quantityOfChrome1);
 			
 			String newPriceMoenChCart=priceMoenChromeCart.getText().substring(1);
-			System.out.println(newPriceMoenChCart);
+			//System.out.println(newPriceMoenChCart);
 			float totalPriceChrome=Float.parseFloat(newPriceMoenChCart);
-			System.out.println("new price is:"+newPriceMoenChCart);
+			System.out.println("Displayed new price is:"+newPriceMoenChCart);
 			
 			
 			float CalculateNewPrice=priceChrome*qtyChrome;
@@ -171,10 +171,8 @@ public class AddMultipleCartItems extends BasePage {
 			Thread.sleep(2000);
 			action.moveToElement(matteBlackquantity);
 			matteBlackquantity.click();
-			System.out.println("Quantity of second product");
-			
 			String quantityOfMatte=matteBlackquantity.getAttribute("value");
-			System.out.println("Quantity of second product"+quantityOfMatte);
+			System.out.println("Quantity of second product: "+quantityOfMatte);
 			
 			
 			
@@ -184,7 +182,7 @@ public class AddMultipleCartItems extends BasePage {
 			
 			String priceMoenMBCart1=priceMoenMBCart.substring(1);
 			float PriceMatteBlack=Float.parseFloat(priceMoenMBCart1);
-			System.out.println("price in cart of product Chrome"+priceMoenMBCart1);
+			System.out.println("price in cart of product Chrome:"+priceMoenMBCart1);
 			
 			if(priceMoenMBCart1.equals(priceMoenMB))
 			{
@@ -196,7 +194,7 @@ public class AddMultipleCartItems extends BasePage {
 			
 			Thread.sleep(2000);
 			
-//Changing the quantity to one more and getting the price changed
+//Changing the quantity to two more(qty-3) and getting the price changed
 			
 			WebDriverWait wait = new WebDriverWait(driver,30);
 			wait.until(ExpectedConditions.elementToBeClickable(qtyUPMatteBlackCart));
@@ -209,12 +207,12 @@ public class AddMultipleCartItems extends BasePage {
 			
 			String quantityOfMB=matteBlackquantity.getAttribute("value");
 			float qtyMb=Float.parseFloat(quantityOfMB);
-			System.out.println("Quantity of Matte Black Finish Now:"+qtyMb);
+			System.out.println("Quantity of Matte Black Finish Now:"+quantityOfMB);
 			
 			String newPriceMoenMBCart=priceMoenMatteBlackCart.getText().substring(1);
-			System.out.println(newPriceMoenMBCart);
+			
 			float totalPriceMatteBlack=Float.parseFloat(newPriceMoenMBCart);
-			System.out.println("new price is:"+newPriceMoenMBCart);
+			System.out.println("Displayed new price is:"+newPriceMoenMBCart);
 			
 			
 			

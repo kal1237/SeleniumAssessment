@@ -6,18 +6,18 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import com.build.qa.build.selenium.framework.BaseFramework;
+import com.build.qa.build.selenium.pageobjects.homepage.AddMultipleCartItems;
 import com.build.qa.build.selenium.pageobjects.homepage.BathroomSinkFaucets;
 import com.build.qa.build.selenium.pageobjects.homepage.HomePage;
 import com.build.qa.build.selenium.pageobjects.homepage.NarrowByCategoryDropPage;
 import com.build.qa.build.selenium.pageobjects.homepage.ProductNameCheck;
-import com.build.qa.build.selenium.pageobjects.homepage.AddMultipleCartItems;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class FergTest extends BaseFramework {
 
-	
-	
+
+
 	/**
 	 * Extremely basic test that outlines some basic
 	 * functionality and page objects as well as assertJ
@@ -33,11 +33,12 @@ public class FergTest extends BaseFramework {
 
 		Assert.assertTrue(homePage.onHomePage());
 		System.out.println("Test1 Success:The website should load up with the Build.com desktop theme.");
-		
-	
-		
 
-		//softly.assertThat(homePage.onHomePage()).as("The website should load up with the Build.com desktop theme.").isTrue();
+		/*try {
+			softly.assertThat(homePage.onHomePage()).as("The website should load up with the Build.com desktop theme.").isTrue();
+		}catch (ExceptionInInitializerError e){
+		      System.out.println("ExceptionInInitializerError caught!"+e.getCause());
+		    } */
 	}
 
 	/**
@@ -46,7 +47,7 @@ public class FergTest extends BaseFramework {
 	 * @assert: That the product page we land on is what is expected by checking the product brand and product id
 	 * @difficulty Easy
 	 */
-	@Test
+	/*@Test
 	public void test2searchForProductLandsOnCorrectProduct() throws InterruptedException {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE"));
@@ -57,6 +58,7 @@ public class FergTest extends BaseFramework {
 		boolean flag3=product.fetchProductID();
 
 		Assert.assertTrue(flag1&&flag2&&flag3);
+
 		System.out.println("Test2 Success:The Product page is as expected and details are as expected");
 
 	}
@@ -69,8 +71,8 @@ public class FergTest extends BaseFramework {
 	 * @assert: the product that is added to the cart is what is expected
 	 * @difficulty Easy-Medium
 	 */
-	
-	@Test
+
+	/*@Test
 	public void test3addProductToCartFromCategoryDrop() throws InterruptedException {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE1"));
@@ -93,7 +95,7 @@ public class FergTest extends BaseFramework {
 	 * @assert that the product and cart total update as expected when the quantity is changed
 	 * @difficulty Medium-Hard
 	 */
-	@Test
+	/*@Test
 	public void test4addMultipleCartItemsAndChangeQuantity() throws InterruptedException {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE"));
@@ -106,11 +108,11 @@ public class FergTest extends BaseFramework {
 		boolean flag2=amci.shoppingCartViewProductMatte();
 		System.out.println(flag2);
 		System.out.println("Shopping Cart for price Matte is as expected");
-		
+
 		Assert.assertTrue(flag1&&flag2);
 		System.out.println("TEst4 Success:The products are added successfully and the price updated as per quantity");
-		
-		
+
+
 	}
 
 	/**
@@ -120,8 +122,8 @@ public class FergTest extends BaseFramework {
 	 * is correct, such that each facet selection is narrowing the product count.
 	 * @difficulty Hard
 	 */
-	
-	@Test
+
+	/*@Test
 	public void test5facetNarrowBysResultInCorrectProductCounts() throws InterruptedException {
 		// TODO: Implement this test
 		driver.get(getConfiguration("HOMEPAGE"));
@@ -134,11 +136,11 @@ public class FergTest extends BaseFramework {
 		boolean flag3=nbcdp.searchBycategorySecondFilter();
 		Thread.sleep(2000);
 		boolean flag4=nbcdp.searchBycategoryThirdFilter();
-		
-		
+
+
 		Assert.assertTrue(flag1&&flag2&flag3&&flag4);
 		System.out.println("Test5 Success:The correct filters are being narrowed and the result count is correct");
-		
-		
-	}
+
+
+	}*/
 }

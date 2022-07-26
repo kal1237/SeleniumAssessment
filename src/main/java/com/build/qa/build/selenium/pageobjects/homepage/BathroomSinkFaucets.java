@@ -17,6 +17,7 @@ public class BathroomSinkFaucets extends BasePage{
 	public BathroomSinkFaucets(WebDriver driver, Wait<WebDriver> wait) {
 		super(driver, wait);
 
+		
 	}
 
 	@FindBy(xpath="(//li[contains(@class,'compare-search-item')])[2]") WebElement product2;
@@ -52,13 +53,13 @@ public class BathroomSinkFaucets extends BasePage{
 
 		Thread.sleep(2000);
 		secondProductName=product2Brand.getText();
-		System.out.println(secondProductName);
+		System.out.println("second product name selected is:"+secondProductName);
 
 		secondProductID=product2ID.getText();
-		System.out.println(secondProductID);
+		System.out.println("second product id selected is:"+secondProductID);
 
 		secondProductDesc=productDesc.getText();
-		System.out.println(secondProductDesc);
+		System.out.println("second product desc selected is :"+secondProductDesc);
 
 		boolean flag=false;
 		if(addToCart.isEnabled())

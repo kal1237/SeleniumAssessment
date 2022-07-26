@@ -77,8 +77,8 @@ public class NarrowByCategoryDropPage extends BasePage {
 
 		String categoryDisplayed=filterCategory1.getText();
 		String CategoryExpected="Category:";
-		String CategoryResult=filterCategoryDisplayed1.getText();
-		String CategoryResultDisplayed="Kitchen Faucets";
+		String CategoryResultDisplayed=filterCategoryDisplayed1.getText();
+		String CategoryResultExpected="Kitchen Faucets";
 		//removed this hardcoded number since the count has changed in the website
 		//int totalNumberExpected=1480;
 		int totalNumberDisplayed=nbc.totalNumberOfrecords();
@@ -89,7 +89,7 @@ public class NarrowByCategoryDropPage extends BasePage {
 		System.out.println("total records now:"+nbc.totalNumberOfrecords());
 
 		if((categoryDisplayed.equalsIgnoreCase(CategoryExpected))
-				&&(CategoryResult.equalsIgnoreCase(CategoryResultDisplayed)))
+				&&(CategoryResultDisplayed.equalsIgnoreCase(CategoryResultExpected)))
 				/*&&(totalNumberExpected==totalNumberDisplayed))*/
 
 		{
@@ -101,7 +101,7 @@ public class NarrowByCategoryDropPage extends BasePage {
 	}
 
 
-	//selecting the "Blacks (219)" from "Color Finish Category" as first filter
+	//selecting the "Blacks " from "Color Finish Category" as first filter
 
 	public boolean searchBycategoryFirstFilter() throws InterruptedException
 	{
@@ -115,11 +115,11 @@ public class NarrowByCategoryDropPage extends BasePage {
 
 		colorFinishCategory.click();
 
-		System.out.println("color finish is selected"); 
+		System.out.println("color finish category dropdown is selected"); 
 
 
 		Thread.sleep(2000);
-		//Select colorFinishChoose=new Select(driver.findElement(By.name("Color Finish Category")));
+		
 
 		//selecting "Blacks" from color finish category 
 
@@ -127,26 +127,26 @@ public class NarrowByCategoryDropPage extends BasePage {
 
 
 		System.out.println("color:blacks is selected");
-		System.out.println("BlacksSelect count is:"+blacksFinish.getText());
+		System.out.println("Blacks finish count is:"+blacksFinish.getText());
 		String blackFinishCount=blacksFinish.getText().substring(8, 11);
-		System.out.println(blackFinishCount);
+		//System.out.println(blackFinishCount);
 		int blackfinishCountInt=Integer.parseInt(blackFinishCount);
 
 		Thread.sleep(3000);
 		String categoryDisplayed=filterCategory2.getText();
 		String CategoryExpected="Color/Finish Category:";
-		String CategoryResult=filterCategoryDisplayed2.getText();
-		String CategoryResultDisplayed="Blacks";
+		String CategoryResultDisplayed=filterCategoryDisplayed2.getText();
+		String CategoryResultExpected="Blacks";
 		int totalNumberExpected=blackfinishCountInt;
 		int totalNumberDisplayed=nbc.totalNumberOfrecords();
 		boolean flag=false;
 
 		System.out.println("The first filter type is:"+categoryDisplayed);
-		System.out.println("The shop by Category selected is:"+CategoryResult);
+		System.out.println("The shop by Category selected is:"+CategoryResultDisplayed);
 		System.out.println("total records now:"+nbc.totalNumberOfrecords());
 
 		if((categoryDisplayed.equalsIgnoreCase(CategoryExpected))
-				&&(CategoryResult.equalsIgnoreCase(CategoryResultDisplayed))
+				&&(CategoryResultDisplayed.equalsIgnoreCase(CategoryResultExpected))
 				&&(totalNumberExpected==totalNumberDisplayed))
 
 		{
@@ -169,7 +169,7 @@ public class NarrowByCategoryDropPage extends BasePage {
 
 		numberOfHandlesCategory.click();
 
-		System.out.println("Number of Handles  is selected"); 
+		System.out.println("Number of Handles category  is selected"); 
 
 
 		Thread.sleep(2000);
@@ -181,27 +181,27 @@ public class NarrowByCategoryDropPage extends BasePage {
 
 
 		System.out.println("Number of Handles:Two handles is selected");
-		System.out.println(twoHandles.getText());
+		System.out.println("the text is:"+twoHandles.getText());
 		String twoHandlesStr=twoHandles.getText().substring(12, 14);
-		System.out.println("two Handles count"+twoHandlesStr);
+		System.out.println("two Handles count:"+twoHandlesStr);
 		int twoHandlesInt=Integer.parseInt(twoHandlesStr);
 
 		//  Two Handle (27)
 		Thread.sleep(3000);
 		String categoryDisplayed=filterCategory3.getText();
 		String CategoryExpected="Number of Handles:";
-		String CategoryResult=filterCategoryDisplayed3.getText();
-		String CategoryResultDisplayed="Two Handle";
+		String CategoryResultDisplayed=filterCategoryDisplayed3.getText();
+		String CategoryResultExpected="Two Handle";
 		int totalNumberExpected=twoHandlesInt;
 		int totalNumberDisplayed=nbc.totalNumberOfrecords();
 		boolean flag=false;
 
 		System.out.println("The filter typeis:"+categoryDisplayed);
-		System.out.println("The shop by Category selected is:"+CategoryResult);
+		System.out.println("The shop by Category selected is:"+CategoryResultDisplayed);
 		System.out.println("total records now:"+nbc.totalNumberOfrecords());
 
 		if((categoryDisplayed.equalsIgnoreCase(CategoryExpected))
-				&&(CategoryResult.equalsIgnoreCase(CategoryResultDisplayed))
+				&&(CategoryResultDisplayed.equalsIgnoreCase(CategoryResultExpected))
 				&&(totalNumberExpected==totalNumberDisplayed))
 
 		{
@@ -221,7 +221,7 @@ public class NarrowByCategoryDropPage extends BasePage {
 
 		collectionCategory.click();
 
-		System.out.println("Collection  is selected"); 
+		System.out.println("Collection category is selected"); 
 
 
 		Thread.sleep(3000);
@@ -235,25 +235,25 @@ public class NarrowByCategoryDropPage extends BasePage {
 		System.out.println("Collection:Chester Field is selected");
 		System.out.println(chesterFieldCollection.getText());
 		String chesterStr=chesterFieldCollection.getText().substring(14, 16);
-		System.out.println("two Handles count"+chesterStr);
+		System.out.println("chester field count:"+chesterStr);
 		int chesterInt=Integer.parseInt(chesterStr);
 
 
 		Thread.sleep(3000);
 		String categoryDisplayed=filterCategory4.getText();
 		String CategoryExpected="Collection:";
-		String CategoryResult=filterCategoryDisplayed4.getText();
-		String CategoryResultDisplayed="Chesterfield";
+		String CategoryResultDisplayed=filterCategoryDisplayed4.getText();
+		String CategoryResultExpected="Chesterfield";
 		int totalNumberExpected=chesterInt;
 		int totalNumberDisplayed=nbc.totalNumberOfrecords();
 		boolean flag=false;
 
 		System.out.println("The filter typeis:"+categoryDisplayed);
-		System.out.println("The shop by Category selected is:"+CategoryResult);
+		System.out.println("The shop by Category selected is:"+CategoryResultDisplayed);
 		System.out.println("total records now:"+nbc.totalNumberOfrecords());
 
 		if((categoryDisplayed.equalsIgnoreCase(CategoryExpected))
-				&&(CategoryResult.equalsIgnoreCase(CategoryResultDisplayed))
+				&&(CategoryResultDisplayed.equalsIgnoreCase(CategoryResultExpected))
 				&&(totalNumberExpected==totalNumberDisplayed))
 
 		{
