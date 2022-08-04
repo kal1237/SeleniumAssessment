@@ -38,13 +38,13 @@ public class FergTest extends BaseFramework {
 		System.out.println("Test1 Success:The website should load up with the Build.com desktop theme.");
 		logger.pass("TestCase1 was successfull");
 		
-
+	}
 		/*try {
 			softly.assertThat(homePage.onHomePage()).as("The website should load up with the Build.com desktop theme.").isTrue();
 		}catch (ExceptionInInitializerError e){
 		      System.out.println("ExceptionInInitializerError caught!"+e.getCause());
 		    } */
-	}
+	
 
 	/**
 	 * Search for the Moen m6702bn from the search bar
@@ -52,6 +52,7 @@ public class FergTest extends BaseFramework {
 	 * @assert: That the product page we land on is what is expected by checking the product brand and product id
 	 * @difficulty Easy
 	 */
+	//removed hard coded product name and can update the product to be searched in properties file..
 	@Test
 	public void test2searchForProductLandsOnCorrectProduct() throws InterruptedException {
 		// TODO: Implement this test
@@ -60,9 +61,9 @@ public class FergTest extends BaseFramework {
 		driver.manage().window().maximize();
 		logger.info("Starting Application");
 		ProductNameCheck product=new ProductNameCheck(driver,wait);
-		boolean flag1=product.searchText();
-		boolean flag2=product.fetchProductBrand();
-		boolean flag3=product.fetchProductID();
+		boolean flag1=product.searchText(getConfiguration("ProductN"),getConfiguration("ProductID") );
+		boolean flag2=product.fetchProductBrand(getConfiguration("ProductN"));
+		boolean flag3=product.fetchProductID(getConfiguration("ProductID"));
 
 		Assert.assertTrue(flag1&&flag2&&flag3);
 

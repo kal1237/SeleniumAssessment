@@ -167,6 +167,7 @@ public class AddMultipleCartItems extends BasePage {
 			public boolean shoppingCartViewProductMatte() throws InterruptedException {
 				 js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();",qtyUPMatteBlackCart );
+			Thread.sleep(1000);
 			System.out.println("step2");
 			Thread.sleep(2000);
 			action.moveToElement(matteBlackquantity);

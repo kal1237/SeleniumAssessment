@@ -28,14 +28,15 @@ public class ProductNameCheck extends BasePage{
 
 
 	//Searching Product name "Moen m6702bn" in search bar and  navigating to product page
-	public boolean searchText() throws InterruptedException
+	//removing hardcoded product name to search ..we can update the properties file with the product to be searched
+	public boolean searchText(String text,String text1) throws InterruptedException
 	{
 		boolean flag=false;
 		String BeforeLaunching=driver.getCurrentUrl();
 		System.out.println("currenturl"+BeforeLaunching);
 
 		searchBar.click();
-		searchBar.sendKeys("Moen m6702bn");
+		searchBar.sendKeys(text," ",text1);
 		Actions action= new Actions(driver);
 		action.sendKeys(Keys.ENTER).build().perform();
 		Thread.sleep(2000);
@@ -53,10 +54,10 @@ public class ProductNameCheck extends BasePage{
 
 	//Checking if the correct Brand Name is displayed
 
-	public boolean fetchProductBrand()
+	public boolean fetchProductBrand(String productName)
 	{
 		boolean flag=false;
-		String ExpectedBrandName="Moen";
+		String ExpectedBrandName=productName;
 		String ActualBrandName=productBrand.getText();
 		System.out.println("product brand is:"+ActualBrandName);
 		if(ExpectedBrandName.equalsIgnoreCase(ActualBrandName))
@@ -70,10 +71,10 @@ public class ProductNameCheck extends BasePage{
 	}
 	//Checking if the correct ProductID is displayed
 
-	public boolean fetchProductID()
+	public boolean fetchProductID(String productI)
 	{
 		boolean flag=false;
-		String ExpectedBrandID="M6702BN";
+		String ExpectedBrandID=productI;
 		String ActualBrandID=productID.getText();
 		String ActualSubString=ActualBrandID.substring(6);
 		System.out.println("product id is:"+ActualSubString);
