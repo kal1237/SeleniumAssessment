@@ -25,14 +25,19 @@ public class FergTest extends BaseFramework {
 	 */
 	@Test
 	public void test1navigateToHomePage() {
+		logger=report.createTest("Test Case1:Homepage check");
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
-
+		
+		
 		HomePage homePage = new HomePage(driver, wait);
 		//System.out.println(homePage.onHomePage());
-
+		
+		logger.info("Starting Application");
 		Assert.assertTrue(homePage.onHomePage());
 		System.out.println("Test1 Success:The website should load up with the Build.com desktop theme.");
+		logger.pass("TestCase1 was successfull");
+		
 
 		/*try {
 			softly.assertThat(homePage.onHomePage()).as("The website should load up with the Build.com desktop theme.").isTrue();
@@ -47,11 +52,13 @@ public class FergTest extends BaseFramework {
 	 * @assert: That the product page we land on is what is expected by checking the product brand and product id
 	 * @difficulty Easy
 	 */
-	/*@Test
+	@Test
 	public void test2searchForProductLandsOnCorrectProduct() throws InterruptedException {
 		// TODO: Implement this test
+		logger=report.createTest("Test Case2:Search for Product lands on correct product");
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
+		logger.info("Starting Application");
 		ProductNameCheck product=new ProductNameCheck(driver,wait);
 		boolean flag1=product.searchText();
 		boolean flag2=product.fetchProductBrand();
@@ -60,7 +67,8 @@ public class FergTest extends BaseFramework {
 		Assert.assertTrue(flag1&&flag2&&flag3);
 
 		System.out.println("Test2 Success:The Product page is as expected and details are as expected");
-
+		logger.pass("TestCase2 was successfull:The Product page is as expected and details are as expected");
+	
 	}
 
 	/**
@@ -72,11 +80,13 @@ public class FergTest extends BaseFramework {
 	 * @difficulty Easy-Medium
 	 */
 
-	/*@Test
+	@Test
 	public void test3addProductToCartFromCategoryDrop() throws InterruptedException {
 		// TODO: Implement this test
+		logger=report.createTest("Test Case3:Add product to cart from Category Drop");
 		driver.get(getConfiguration("HOMEPAGE1"));
 		driver.manage().window().maximize();
+		logger.info("Starting Application");
 		BathroomSinkFaucets bsf=new BathroomSinkFaucets(driver,wait);
 		boolean flag1=bsf.productSelectionPage();
 		System.out.println("product selection page is as expected");
@@ -85,8 +95,8 @@ public class FergTest extends BaseFramework {
 	Thread.sleep(2000);
 		Assert.assertTrue(flag1&&flag2);
 		System.out.println("Test3 Success:The second Product is added successfully to the cart and the product details are as expected");
-
-
+		logger.pass("TestCase3 was successfull:The Product is added successfully to the cart and the product details are as expected");
+	
 	}
 
 	/**
@@ -95,11 +105,13 @@ public class FergTest extends BaseFramework {
 	 * @assert that the product and cart total update as expected when the quantity is changed
 	 * @difficulty Medium-Hard
 	 */
-	/*@Test
+	@Test
 	public void test4addMultipleCartItemsAndChangeQuantity() throws InterruptedException {
 		// TODO: Implement this test
+		logger=report.createTest("Test Case4:Add Multiple cart Items and Change the Quantity");
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
+		logger.info("Starting Application");
 		AddMultipleCartItems amci=new AddMultipleCartItems(driver,wait);
 		amci.addTwoDifferentFinishOfProduct();
 		boolean flag1=amci.shoppingCartViewProductChrome();
@@ -111,7 +123,7 @@ public class FergTest extends BaseFramework {
 
 		Assert.assertTrue(flag1&&flag2);
 		System.out.println("TEst4 Success:The products are added successfully and the price updated as per quantity");
-
+		logger.pass("TestCase4 Successfull:The products are added successfully and the price updated as per quantity");
 
 	}
 
@@ -123,11 +135,13 @@ public class FergTest extends BaseFramework {
 	 * @difficulty Hard
 	 */
 
-	/*@Test
+	@Test
 	public void test5facetNarrowBysResultInCorrectProductCounts() throws InterruptedException {
 		// TODO: Implement this test
+		logger=report.createTest("Test Case5:Narrow By Filters and Results have correct Product counts");
 		driver.get(getConfiguration("HOMEPAGE"));
 		driver.manage().window().maximize();
+		logger.info("Starting Application");
 		NarrowByCategoryDropPage nbcdp=new NarrowByCategoryDropPage(driver,wait);
 		boolean flag1=nbcdp.searchByCategory();
 		Thread.sleep(2000);
@@ -140,7 +154,7 @@ public class FergTest extends BaseFramework {
 
 		Assert.assertTrue(flag1&&flag2&flag3&&flag4);
 		System.out.println("Test5 Success:The correct filters are being narrowed and the result count is correct");
+		logger.pass("TestCase5 Successfull:The correct filters are being narrowed and the result count is correct");
 
-
-	}*/
+	}
 }

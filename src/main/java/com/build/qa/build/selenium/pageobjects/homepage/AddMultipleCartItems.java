@@ -112,7 +112,7 @@ public class AddMultipleCartItems extends BasePage {
 			//getting current price and checkin if it matches the actual value
 			
 			priceMoenChCart=priceMoenChromeCart.getText();
-			
+			Thread.sleep(2000);
 			String priceMoenChCart1=priceMoenChCart.substring(1);
 			float priceChrome=Float.parseFloat(priceMoenChCart1);
 			System.out.println("price in cart of product Chrome: "+priceMoenChCart);
@@ -234,17 +234,10 @@ public class AddMultipleCartItems extends BasePage {
 			}
 			
 			return flag2;
-			
-			
-
+	
 		}
 	
 	
-		
-		
-		
-		
-		
 	}
 	
 

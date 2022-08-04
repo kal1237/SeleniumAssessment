@@ -10,6 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.assertj.core.api.JUnitSoftAssertions;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -24,6 +25,10 @@ import org.openqa.selenium.support.ui.Wait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 public abstract class BaseFramework {
 	protected WebDriver driver;
 	protected Wait<WebDriver> wait;
@@ -32,6 +37,8 @@ public abstract class BaseFramework {
 	private static final String DRIVER_FIREFOX = "firefox";
 	private static final String DRIVER_CHROME = "chrome";
 	private static final String DRIVER_EDGE = "edge";
+	public static ExtentReports report;
+	public ExtentTest logger;
 	
 	private static Properties configuration;
 
@@ -48,6 +55,10 @@ public abstract class BaseFramework {
 		input = new FileInputStream(new File(CONFIG_FILE));
 		configuration.loadFromXML(input);
 		input.close();
+		ExtentHtmlReporter extent= new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"/Reports/report.html"));
+		report=new ExtentReports();
+		report.attachReporter(extent);
+		
 	}
 
 	@Before
@@ -88,5 +99,10 @@ public abstract class BaseFramework {
 		LOG.info("Quitting driver.");
 		driver.close();
 		driver = null;
+	}
+	@AfterClass
+	public static void tearDownMethod()
+	{
+		report.flush();   
 	}
 }
